@@ -64,6 +64,17 @@ src/
    ```
 5. **Push** your branch and open a Pull Request against `main`. Describe what you changed and why, and include any manual testing steps you followed.
 
+## Reporting issues
+
+Found a bug or unexpected behaviour? Please open a [GitHub Issue](../../issues) and include:
+
+- **What you did** — the steps to reproduce the problem.
+- **What you expected** — the behaviour you were looking for.
+- **What happened instead** — error messages, screenshots, or log output (`docker compose logs`).
+- **Environment** — OS, Docker version, and browser (if relevant).
+
+For security vulnerabilities, please **do not** open a public issue — contact the maintainers directly instead.
+
 ## Questions?
 
 Open a GitHub Issue or start a Discussion — we're happy to help.
