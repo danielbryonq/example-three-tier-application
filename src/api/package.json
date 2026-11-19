@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --forceExit",
     "start": "node index.js",
     "dev": "node --watch index.js"
   },
@@ -12,8 +12,18 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "jest": {
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/__tests__"
+    ]
+  },
   "dependencies": {
     "express": "^5.2.1",
     "pg": "^8.21.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.1.0"
   }
 }
