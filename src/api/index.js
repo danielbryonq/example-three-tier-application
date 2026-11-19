@@ -48,6 +48,11 @@ app.patch('/tasks/:id', async (req, res) => {
   res.json(updated[0]);
 });
 
-app.listen(PORT, () => {
-  console.log(`API listening on port ${PORT}`);
-});
+// Only start the server when this file is run directly (not during tests)
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`API listening on port ${PORT}`);
+  });
+}
+
+module.exports = app;
