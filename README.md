@@ -66,6 +66,41 @@ The API is not exposed directly, but you can reach it through the web container 
 | POST | `/tasks` | Create a task (`{ "title": "..." }`) |
 | PATCH | `/tasks/:id` | Update a task (`{ "completed": true }` or `{ "title": "..." }`) |
 
+## Testing
+
+Each tier has its own Jest-based test suite. No running database or server is required — all external dependencies are mocked.
+
+### Run all tiers
+
+```bash
+# API tests
+cd src/api && npm test
+
+# Web tests
+cd src/web && npm test
+
+# Database migration tests
+cd src/db && npm test
+```
+
+### Run a single tier with coverage
+
+```bash
+npm run test:coverage
+```
+
+### What is tested
+
+| Tier | Framework | Coverage |
+|------|-----------|----------|
+| API (`src/api/`) | Jest + supertest | All four HTTP endpoints, DB connection setup |
+| Web (`src/web/`) | Jest + React Testing Library | Home page component, server actions (getTasks, createTask, toggleTask) |
+| DB (`src/db/`) | Jest | Both migration files — column definitions, up/down exports |
+
+A ready-to-use GitHub Actions workflow is provided in `docs/test-workflow.yml`. Copy it to `.github/workflows/test.yml` to run tests automatically on every push and pull request (requires a GitHub token with the `workflow` scope).
+
+See [TESTING.md](TESTING.md) for a full guide on the test setup, how to add new tests, and coverage targets.
+
 ## Project structure
 
 ```
