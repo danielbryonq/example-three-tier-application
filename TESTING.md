@@ -210,9 +210,18 @@ npm run test:coverage    # with Istanbul coverage report
 
 ## CI — GitHub Actions
 
-The workflow file is at `.github/workflows/test.yml`.
+A ready-to-use GitHub Actions workflow is provided at `docs/test-workflow.yml`.
 
-It runs on **every push and pull request** to any branch. The three test jobs (`test-api`, `test-web`, `test-db`) run in parallel, each:
+To activate it, copy the file into place (requires a GitHub token with the `workflow` scope):
+
+```bash
+cp docs/test-workflow.yml .github/workflows/test.yml
+git add .github/workflows/test.yml
+git commit -m "ci: add test workflow"
+git push
+```
+
+Once active, it runs on **every push and pull request** to any branch. The three test jobs (`test-api`, `test-web`, `test-db`) run in parallel, each:
 
 1. Checking out the code.
 2. Setting up Node.js 22 with npm caching.

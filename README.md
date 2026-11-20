@@ -97,7 +97,7 @@ npm run test:coverage
 | Web (`src/web/`) | Jest + React Testing Library | Home page component, server actions (getTasks, createTask, toggleTask) |
 | DB (`src/db/`) | Jest | Both migration files — column definitions, up/down exports |
 
-Tests run automatically on every push and pull request via the [GitHub Actions test workflow](.github/workflows/test.yml).
+A ready-to-use GitHub Actions workflow is provided in `docs/test-workflow.yml`. Copy it to `.github/workflows/test.yml` to run tests automatically on every push and pull request (requires a GitHub token with the `workflow` scope).
 
 See [TESTING.md](TESTING.md) for a full guide on the test setup, how to add new tests, and coverage targets.
 
